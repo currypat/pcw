@@ -1,5 +1,6 @@
 # patcurryworks.com/blog/views.py
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse('Blog')
+    response = render(request, 'blog/index.html', {})
+    return response

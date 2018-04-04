@@ -1,4 +1,4 @@
-# patcurryworks.com/tests/blog/tests.py
+# patcurryworks.com/tests/main/tests.py
 from django.test import TestCase
 from django.urls import resolve
 
