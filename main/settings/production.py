@@ -3,7 +3,10 @@
 Django production settings.
 """
 
-from main.settings.base import *
+from .base import *
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
 DEBUG = False
 
 ALLOWED_HOSTS = ["https://patcurryworks.com",
