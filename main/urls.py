@@ -1,3 +1,4 @@
+# patcurryworks.com/main/urls.py
 """main URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,7 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from main import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'),
     path('blog/', include('blog.urls')),
 ]
