@@ -10,4 +10,4 @@ install:
 
 script:
   - "echo 'hey!'"
-  - "python manage.py test"
+  - "python manage.py test --settings=main.settings.dev"
