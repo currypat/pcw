@@ -3,5 +3,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def home(request):
-    response = render(request, 'main/home.html', {})
+    context = {}
+    response = render(request, 'main/home.html', context)
     return response
