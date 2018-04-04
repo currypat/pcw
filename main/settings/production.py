@@ -9,11 +9,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://patcurryworks.com",
-                 "https://www.patcurryworks.com",
-                 "http://patcurryworks.com",
-                 "http://www.patcurryworks.com"
-]
+ALLOWED_HOSTS = ["patcurryworks.com", "www.patcurryworks.com"]
 
 if "RDS_HOSTNAME" in os.environ:
     DATABASES = {
