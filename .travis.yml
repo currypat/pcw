@@ -16,16 +16,16 @@ script:
 
 before_deploy: "echo 'ready to deploy'"
 
-#deploy:
-#  provider: elasticbeanstalk
-#  access_key_id: $ACCESSKEYID
-#  secret_access_key:
-#    secure: "$SECRETACCESSKEY"
-#  region: "eu-central-1"
-#  app: "patcurryworks"
-#  env: "patcurryworks-dev"
-#  bucket_name: "elasticbeanstalk-eu-central-1-707675293479"
-#  on:
-#    branch: master
-#
-#after_deploy: "echo 'application deployed'"
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESSKEYID
+  secret_access_key:
+    secure: "$SECRETACCESSKEY"
+  region: "eu-central-1"
+  app: "patcurryworks"
+  env: "patcurryworks-dev"
+  bucket_name: "elasticbeanstalk-eu-central-1-707675293479"
+  on:
+    branch: master
+
+after_deploy: "echo 'application deployed'"
