@@ -16,4 +16,16 @@ License
 
 Examples of what I can make
 
+basic js
+leaflet
+django rest framework api
+react
+react and redux
+graphql
+mongo?
+flask?
+d3?
+how would I show docker? kubernetes?
+
+
 Examples of what I have made - Portfolio
