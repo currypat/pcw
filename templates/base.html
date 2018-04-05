@@ -15,7 +15,14 @@
 
   </head>
   <body>
+    <div class="header">
+      <div><a href="{% url 'blog:index' %}">Blog</a></div>
+      <div><a href="{% url 'bio:index' %}">Bio</a></div>
+      <div><a href="{% url 'bio:resume' %}">Resume</a></div>
+    </div>
     {% block content %}
     {% endblock content %}
+    <div class="footer">
+    </div>
   </body>
 </html>
