@@ -117,4 +117,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "../patcurryworks.com-static/build"),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "../patcurryworks.com-static/build")
+#STATIC_ROOT = os.path.join(BASE_DIR, "../patcurryworks.com-static/build")
