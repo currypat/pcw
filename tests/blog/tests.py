@@ -17,9 +17,9 @@ class BlogViewTests(TestCase):
         response = self.client.get(self.blog_url)
         self.assertEqual(response.status_code, 200)
 
-    def test_blog_index_view_has_pat_curry_works_in_it(self):
+    def test_blog_index_view_has_Blog_in_it(self):
         response = self.client.get(self.blog_url)
-        self.assertIn('Blog', response.content.decode("utf-8"))
+        self.assertIn('Blog', response.content.decode('utf-8'))
 
 
 

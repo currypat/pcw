@@ -8,7 +8,7 @@ Right now I am trying to make http automatically redirect to https with eb ssh, 
 Plans
 Profile?
 
-Resume
+Resume - app?
 
 Blog
 
