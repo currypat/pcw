@@ -8,7 +8,9 @@ Right now I am trying to make http automatically redirect to https with eb ssh, 
 Plans
 Profile?
 
-Resume - app?
+Resume
+
+CV
 
 Blog
 
@@ -16,8 +18,13 @@ License
 
 Examples of what I can make
 
+css-grid
+flexbox
+bootstrap 4
 basic js
 leaflet
+amazon web services
+digital ocean
 django rest framework api
 react
 react and redux
@@ -26,6 +33,9 @@ mongo?
 flask?
 d3?
 how would I show docker? kubernetes?
+
+other programming languages?
+other front-ends?
 
 
 Examples of what I have made - Portfolio
