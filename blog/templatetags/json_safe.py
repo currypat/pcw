@@ -20,4 +20,4 @@ def json_safe(value):
         # anything other than a JSON object
         raise ValueError('JSON contains a quote or escape sequence that was unable to be stripped')
 
-return mark_safe(clean)
+    return mark_safe(clean)
