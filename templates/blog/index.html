@@ -9,7 +9,14 @@
   <p>https://hackernoon.com/reconciling-djangos-mvc-templates-with-react-components-3aa986cf510a</p.>
 
 
+{% if post_list %}
+  {% for post in post_list %}
+    <p>{{ post.text }}</p.>
+  {% endfor %}
+{% else %}
+  <p>no posts</p>
+{% endif %}
 
 
-</div>
+</Div>
 {% endblock content %}
