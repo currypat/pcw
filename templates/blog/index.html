@@ -1,5 +1,6 @@
 <!-- patcurryworks.com/templates/blog/index.html -->
 {% extends "base.html" %}
+{% load json_safe %}
 
 {% block content %}
 <div class="blog">
@@ -17,6 +18,7 @@
   <p>no posts</p>
 {% endif %}
 
+<p>{{ props|json_safe }}</p>
 
-</Div>
+</div>
 {% endblock content %}
