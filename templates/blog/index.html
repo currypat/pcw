@@ -1,5 +1,6 @@
 <!-- patcurryworks.com/templates/blog/index.html -->
 {% extends "base.html" %}
+{% load static %}
 {% load json_safe %}
 
 {% block content %}
@@ -15,4 +16,5 @@
 <p>{{ post_list_serialized|json_safe }}</p>
 
 </div>
+<script src="{% static 'js/blog-react.js' %}"></script>
 {% endblock content %}
