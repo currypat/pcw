@@ -1,4 +1,5 @@
 <!-- patcurryworks.com/templates/base.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,20 +11,31 @@
 
     <title>Pat Curry Works</title>
 
+    <link rel="stylesheet" href="{% static 'css/base-style.css' %}">
+
     {% block head %}
     {% endblock head %}
 
   </head>
   <body>
-    <div class="header">
-      <div><a href="{% url 'home' %}">Home</a></div>
-      <div><a href="{% url 'blog:index' %}">Blog</a></div>
-      <div><a href="{% url 'bio:index' %}">Bio</a></div>
-      <div><a href="{% url 'bio:resume' %}">Resume</a></div>
-    </div>
-    {% block content %}
-    {% endblock content %}
-    <div class="footer">
+    <div class="page">
+
+
+      <div class="header">
+        <a class="link home" href="{% url 'home' %}">Home</a>
+        <a class="link blog" href="{% url 'blog:index' %}">Blog</a>
+        <a class="link bio" href="{% url 'bio:index' %}">Bio</a>
+        <a class="link resume" href="{% url 'bio:resume' %}">Resume</a>
+      </div>
+
+      {% block content %}
+
+      {% endblock content %}
+
+      <div class="footer">
+        <a class="link" href="https://github.com/patcurry/patcurryworks.com" target="_blank">GitHub</a>
+      </div>
+      
     </div>
   </body>
 </html>
