@@ -1,0 +1,19 @@
+<!-- patcurryworks.com/templates/blog/index.html -->
+{% extends "base.html" %}
+{% load static %}
+{% load json_safe %}
+
+{% block content %}
+<div class="blog">
+  <h1>Blog</h1>
+{% if post_list %}
+  {% for post in post_list %}
+    <p>{{ post.title }}</p>
+  {% endfor %}
+{% else %}
+  <p>No posts yet</p>
+{% endif %}
+
+</div>
+<script src="{% static 'js/blog-react.js' %}"></script>
+{% endblock content %}
