@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'blog',
     'bio',
     'exercise_api',
+    'workouts',
 ]
 
 MIDDLEWARE = [

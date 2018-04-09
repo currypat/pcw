@@ -25,4 +25,5 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('bio/', include('bio.urls', namespace='bio')),
     re_path(r'^exercise/', include('exercise_api.urls')),
+    path('workouts/', include('workouts.urls', namespace='workouts')),
 ]
