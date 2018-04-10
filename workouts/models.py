@@ -40,7 +40,7 @@ class Session(models.Model):
         Exercise,
         through='Set',
         through_fields=('session', 'exercise'),
-        related_name='sessions',
+        #related_name='sessions',
     )
 
 
@@ -48,8 +48,8 @@ class Set(models.Model):
     """This set can have many repetitions of one exercise.
     Sit is going to be a through field for the relationship between
     the Exercise and Session models."""
-    session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True, related_name="sets")
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, blank=True, null=True, related_name="sets")
+    session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, blank=True, null=True)
     amount = models.IntegerField(default=1, blank=True, null=True)
     units = models.CharField(
         max_length=4,
