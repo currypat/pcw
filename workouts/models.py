@@ -46,7 +46,7 @@ class Session(models.Model):
     """This session can have many sets of different types."""
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True)
-    sets = models.ForeignKey(Set, on_delete_models.CASCADE)
+    sets = models.ForeignKey(Set, on_delete=models.CASCADE)
 
 
 
