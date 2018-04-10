@@ -3,15 +3,13 @@ from django.db import models
 from django.utils.text import slugify
 
 """
+There needs to be a many to many relationship between exercise and set.
+
+
 https://www.medicinenet.com/weight_lifting/article.htm#how_do_i_go_about_lifting_for_tone_and_endurance
 Sets and reps are the terms used to describe the number of times you perform an exercise. A rep is the number of times you perform a specific exercise, and a set is the number of cycles of reps that you complete. For example, suppose you complete 15 reps of a bench press. You would say you've completed "one set of 15 reps." A set can be any number of reps, so if you complete 10 reps of a bench press, you would say you've completed "one set of 10 reps," and if you complete just five reps, then that would be "one set of five reps."
 """
 
-
-# Session
-# Set
-# Rep
-# Exercise
 
 SECONDS = 'sec'
 REPETITIONS = 'reps'
@@ -26,15 +24,32 @@ class Exercise(models.Model):
     title = models.CharField(max_length=50, blank=True, null=True)
     exercise_slug = models.SlugField(max_length=50, blank=True, null=True)
 
-
+    def __str__(self):
+        return self.title
 
     def save(self, *args, **kwargs):
         self.exercise_slug = slugify(self.title)
         super(Exercise, self).save(*args, **kwargs)
 
+
+class Session(models.Model):
+    """This session can have many sets of different types."""
+    created = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=100, blank=True)
+    exercises = models.ManyToManyField(
+        Exercise,
+        through='Set',
+        through_fields=('session', 'exercise'),
+        related_name='sessions',
+    )
+
+
 class Set(models.Model):
-    """This set can have many repetitions of one exercise."""
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    """This set can have many repetitions of one exercise.
+    Sit is going to be a through field for the relationship between
+    the Exercise and Session models."""
+    session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True, related_name="sets")
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, blank=True, null=True, related_name="sets")
     amount = models.IntegerField(default=1, blank=True, null=True)
     units = models.CharField(
         max_length=4,
@@ -42,32 +57,3 @@ class Set(models.Model):
         default=REPETITIONS
     )
 
-class Session(models.Model):
-    """This session can have many sets of different types."""
-    created = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(max_length=100, blank=True)
-    sets = models.ForeignKey(Set, on_delete=models.CASCADE)
-
-
-
-#    amount = models.IntegerField(default=1)
-#    sets = models.IntegerField(default=1)
-#    units = models.CharField(
-#        max_length=4,
-#        choices=UNIT_CHOICES,
-#        default=REPETITIONS
-#    )
-
-#    class Meta:
-#        ordering = ('created',)
-        
-
-#class Set(models.Model):
-#    """This set can have many exercises."""
-
-#class Exercise(models.Model):
-#    """This is the number of times a particular exercise was performed during a set.
-#    It should probably be called reps or something, and not Exercise. Exercise might
-#    be actually the individual exercise.
-#    """
-    
