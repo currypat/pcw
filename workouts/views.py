@@ -1,14 +1,37 @@
 # patcurryworks.com/workouts/views.py
 #from django.shortcuts import render, get_object_or_404
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from workouts.models import Exercise, Set, Session
 
+
+# Session views
 class SessionList(ListView):
     model = Session
 
 class SessionDetail(DetailView):
     model = Session
+
+class SessionCreate(CreateView):
+    model = Session
+    fields = ['title']
+    success_url = reverse_lazy('workouts:SessionList')
+
+class SessionUpdate(UpdateView):
+    model = Session
+    fields = ['title']
+    success_url = reverse_lazy('workouts:SessionList')
+
+class SessionDelete(DeleteView):
+    model = Session
+    success_url = reverse_lazy('workouts:SessionList')
+
+
+# Exercise views
+
+# Set views
+
 
 
 #class ExerciseList(generics.ListCreateAPIView):
