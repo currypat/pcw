@@ -8,13 +8,20 @@ Right now I am trying to make http automatically redirect to https with eb ssh, 
 Plans
 Profile?
 
-Resume
-
-CV
+Resume/CV
+  - static page?
 
 Blog
+  - basic django list and detail views, only I will be able to post through the django admin
 
-License
+Workout Journal
+  - should be linked to users so that CRUD operations can be displayed
+  - regular django views
+  - django rest framework api with react -- presumably the react can be served from an amazon S3 bucket
+  - is there a django graphql server I can use?
+  - any other frontend frameworks?
+
+License - done, MIT
 
 Examples of what I can make
 
