@@ -9,19 +9,21 @@ Plans
 Profile?
 
 Resume/CV
-  - static page?
+  - static page without model backing it or model backed?
 
 Blog
   - basic django list and detail views, only I will be able to post through the django admin
+  - nice and simple static site
 
 Workout Journal
   - should be linked to users so that CRUD operations can be displayed
-  - regular django views
+  - regular django views - generic class based views
   - django rest framework api with react -- presumably the react can be served from an amazon S3 bucket
   - is there a django graphql server I can use?
   - any other frontend frameworks?
 
-License - done, MIT
+Other pages?
+Travel page?
 
 Examples of what I can make
 
@@ -32,7 +34,7 @@ basic js
 leaflet
 amazon web services
 digital ocean
-django rest framework api
+django rest framework api - workout journal
 react
 react and redux
 graphql
@@ -43,6 +45,13 @@ how would I show docker? kubernetes?
 
 other programming languages?
 other front-ends?
-
+other backends? - this seems harder than other front ends.
 
 Examples of what I have made - Portfolio
+
+Make sure that spatial data hub site works perfectly.
+If a function is not ready, don't implement it.
+
+other sites? I only have this one.
+
+set up a staging version.
