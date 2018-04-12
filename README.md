@@ -38,6 +38,8 @@ django rest framework api - workout journal
 react
 react and redux
 graphql
+Rust -- web assembly
+Scalajs?
 mongo?
 flask?
 d3?

@@ -1,6 +1,7 @@
 # patcurryworks.com/workouts/models.py
 from django.db import models
 from django.utils.text import slugify
+import datetime
 
 """
 There needs to be a many to many relationship between exercise and set.
@@ -28,14 +29,15 @@ class Exercise(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.exercise_slug = slugify(self.title)
+        self.exercise_slug = slugify(self.title + d)
         super(Exercise, self).save(*args, **kwargs)
 
 
 class Session(models.Model):
     """This session can have many sets of different types."""
-    created = models.DateTimeField(auto_now_add=True)
+    pub_date= models.DateField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True)
+    session_slug = models.SlugField(max_length=100, blank=True, null=True)
     exercises = models.ManyToManyField(
         Exercise,
         through='Set',
@@ -43,6 +45,10 @@ class Session(models.Model):
         #related_name='sessions',
     )
 
+    def save(self, *args, **kwargs):
+        d = datetime.datetime.today().strftime('%Y-%m-%d')
+        self.session_slug = slugify(self.title + '-' + d)
+        super(Session, self).save(*args, **kwargs)
 
 class Set(models.Model):
     """This set can have many repetitions of one exercise.
