@@ -9,25 +9,36 @@ from workouts.models import Exercise, Set, Session
 class SessionList(ListView):
     model = Session
 
+    
 class SessionDetail(DetailView):
     model = Session
 
+    
 class SessionCreate(CreateView):
     model = Session
     fields = ['title']
     success_url = reverse_lazy('workouts:SessionList')
 
+    
 class SessionUpdate(UpdateView):
     model = Session
     fields = ['title']
     success_url = reverse_lazy('workouts:SessionList')
 
+    
 class SessionDelete(DeleteView):
     model = Session
     success_url = reverse_lazy('workouts:SessionList')
 
 
 # Exercise views
+class ExerciseList(ListView):
+    model = Exercise
+
+
+class ExerciseDetail(DetailView):
+    model = Exercise
+    slug_field = 'exercise_slug'
 
 # Set views
 

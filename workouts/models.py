@@ -21,7 +21,7 @@ UNIT_CHOICES = (
 
 
 class Exercise(models.Model):
-    """This is the smallest individual unit."""
+    """This is the smallest individual unit. Each exercise should be unique"""
     title = models.CharField(max_length=50, blank=True, null=True)
     exercise_slug = models.SlugField(max_length=50, blank=True, null=True)
 
@@ -29,7 +29,7 @@ class Exercise(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.exercise_slug = slugify(self.title + d)
+        self.exercise_slug = slugify(self.title)
         super(Exercise, self).save(*args, **kwargs)
 
 

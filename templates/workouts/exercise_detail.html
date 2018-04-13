@@ -1,0 +1,12 @@
+<!-- patcurryworks.com/templates/workouts/exercise_detail.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ object.title }}</h2>
+
+<h3>Sets</h3>
+{% for set in object.set_set.all %}
+<h4>Session: {{ set.session.title }} - {{ set.session.pub_date }}</h4>
+<p>Amount: {{ set.amount }} {{ set.units }}</p>
+{% endfor %}
+{% endblock content %}

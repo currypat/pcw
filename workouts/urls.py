@@ -17,9 +17,11 @@ urlpatterns = [
     re_path(r'^sessions/(?P<pk>[0-9]+)/update/$', views.SessionUpdate.as_view(), name='SessionUpdate'),
     re_path(r'^sessions/(?P<pk>[0-9]+)/delete/$', views.SessionDelete.as_view(), name='SessionDelete'),
 
-    # sessions - sets
-
     # exercises
+    path('exercises/', views.ExerciseList.as_view(), name='ExerciseList'),
+    re_path(r'^exercises/(?P<slug>[-\w]*)/$', views.ExerciseDetail.as_view(), name='ExerciseDetail'),
+
+    # sessions - sets
 
     # exercises - sets
 
