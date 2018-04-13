@@ -10,11 +10,18 @@ urlpatterns = [
     # normal django view urls
     ############################
 
+    # sessions
     path('sessions/', views.SessionList.as_view(), name='SessionList'),
     re_path(r'^sessions/(?P<pk>[0-9]+)/$', views.SessionDetail.as_view(), name='SessionDetail'),
     path('sessions/new/', views.SessionCreate.as_view(), name='SessionCreate'),
     re_path(r'^sessions/(?P<pk>[0-9]+)/update/$', views.SessionUpdate.as_view(), name='SessionUpdate'),
     re_path(r'^sessions/(?P<pk>[0-9]+)/delete/$', views.SessionDelete.as_view(), name='SessionDelete'),
+
+    # sessions - sets
+
+    # exercises
+
+    # exercises - sets
 
     ############################
     # django rest framework urls

@@ -24,4 +24,4 @@ class SessionSerializer(serializers.ModelSerializer):
     sets = SetSerializer(read_only=True, many=True)
     class Meta:
         model = Session
-        fields = ('created', 'title', 'sets')
+        fields = ('pub_date', 'title', 'sets')
