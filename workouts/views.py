@@ -1,5 +1,5 @@
 # patcurryworks.com/workouts/views.py
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView
 from django.views.generic import CreateView, UpdateView, DeleteView
 from workouts.models import Exercise, Set, Session
@@ -11,13 +11,17 @@ class SessionList(ListView):
 
     
 class SessionDetail(DetailView):
+    """The sets will be creatable from this page."""
     model = Session
 
     
 class SessionCreate(CreateView):
     model = Session
     fields = ['title']
-    success_url = reverse_lazy('workouts:SessionList')
+    template_name = 'workouts/session_create.html'
+
+    def get_success_url(self):
+        return reverse('workouts:SessionDetail', kwargs={'pk': self.object.pk})
 
     
 class SessionUpdate(UpdateView):

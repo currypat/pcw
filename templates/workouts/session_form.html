@@ -1,37 +1,7 @@
 <!-- patcurryworks/templates/workouts/session_form.html -->
-{% extends "base.html" %}
-{% load static %}
-
-{% block content %}
-<div class="sessions">
-  <h1>Session Form</h1>
-
-  <div>
-    <p>There should be a way to save exercises, sets, and repetitions or time on this page. Also, there should be automatic selections for the exercises, set names, repetitions/seconds, and session name. For example if there is already session 1 for a particular day it should suggest session 2, and there should automatically be an exercise suggested and a number of repetitions.
-    </p>
-  </div>
-
   <div class="session-form">
     <form action="" method="post">
       {% csrf_token %}
       {{ form.as_p }}
     </form>
   </div>
-  <div>
-    <form action="" method="">
-      <label>Exercise Form</label>
-      <input type="text" placeholder="Exercise"/>
-    </form>
-  </div>
-  <div>
-    <form action="" method="">
-      <label>Set Form</label>
-      <input type="text" placeholder="How many?"/>
-      <select>
-	<option>Repetitions</option>
-	<option>Seconds</option>
-      </select>
-    </form>
-  </div>
-</div>
-{% endblock content %}
