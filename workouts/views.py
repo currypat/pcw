@@ -1,13 +1,23 @@
 # patcurryworks.com/workouts/views.py
-#from django.shortcuts import render, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from workouts.models import Exercise, Set, Session
 
 class SessionList(ListView):
     model = Session
 
 class SessionDetail(DetailView):
+    model = Session
+
+class SessionCreate(CreateView):
+    model = Session
+    fields = ('title',)
+
+class SessionUpdate(UpdateView):
+    model = Session
+
+class SessionDelete(DeleteView):
     model = Session
 
 
