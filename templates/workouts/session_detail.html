@@ -1,2 +1,10 @@
 <!-- patcurryworks.com/templates/workouts/session_detail.html -->
 Session Detail
+<h2>{{ object.title }} - {{ object.created }}</h2>
+
+<h3>Sets</h3>
+{% for set in object.set_set.all %}
+  <h4>Exercise: {{ set.exercise.title }}</h4>
+  <p>How do I get a set count? </p>
+  <p>Amount: {{ set.amount }} {{ set.units }}</p>
+{% endfor %}

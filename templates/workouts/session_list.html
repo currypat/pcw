@@ -1,2 +1,19 @@
 <!-- patcurryworks.com/templates/workouts/session_list.html -->
-Session List
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="sessions">
+  <h1>Session List</h1>
+  <div class="session-list">
+  {% if object_list %}
+  {% for session in object_list %}
+  <p>{{ session.title }} - {{ session.pub_date|date:"Y-m-d" }}</p>
+  <p>{{ session.session_slug }}</p>
+  {% endfor %}
+  {% else %}
+  <p>no sessions yet</p>
+  {% endif %}
+  </div>
+</div>
+{% endblock content %}

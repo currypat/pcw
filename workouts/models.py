@@ -1,6 +1,7 @@
 # patcurryworks.com/workouts/models.py
 from django.db import models
 from django.utils.text import slugify
+import datetime
 
 """
 There needs to be a many to many relationship between exercise and set.
@@ -28,28 +29,33 @@ class Exercise(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.exercise_slug = slugify(self.title)
+        self.exercise_slug = slugify(self.title + d)
         super(Exercise, self).save(*args, **kwargs)
 
 
 class Session(models.Model):
     """This session can have many sets of different types."""
-    created = models.DateTimeField(auto_now_add=True)
+    pub_date= models.DateField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True)
+    session_slug = models.SlugField(max_length=100, blank=True, null=True)
     exercises = models.ManyToManyField(
         Exercise,
         through='Set',
         through_fields=('session', 'exercise'),
-        related_name='sessions',
+        #related_name='sessions',
     )
 
+    def save(self, *args, **kwargs):
+        d = datetime.datetime.today().strftime('%Y-%m-%d')
+        self.session_slug = slugify(self.title + '-' + d)
+        super(Session, self).save(*args, **kwargs)
 
 class Set(models.Model):
     """This set can have many repetitions of one exercise.
     Sit is going to be a through field for the relationship between
     the Exercise and Session models."""
-    session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True, related_name="sets")
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, blank=True, null=True, related_name="sets")
+    session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, blank=True, null=True)
     amount = models.IntegerField(default=1, blank=True, null=True)
     units = models.CharField(
         max_length=4,
