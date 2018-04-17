@@ -1,4 +1,5 @@
 from django.urls import path, re_path
+from django.views.generic import TemplateView
 from workouts import views
 from workouts import api_views
 
@@ -9,6 +10,8 @@ urlpatterns = [
     ############################
     # normal django view urls
     ############################
+    # workouts index view
+    path('', TemplateView.as_view(template_name='workouts/workout_index.html'), name='WorkoutIndex'),
 
     # sessions
     path('sessions/', views.SessionList.as_view(), name='SessionList'),
