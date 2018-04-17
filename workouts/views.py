@@ -68,7 +68,6 @@ class ExerciseDelete(DeleteView):
     success_url = reverse_lazy('workouts:ExerciseList')
 
 
-
 # Set views
 class SetListBySession(ListView):
 
@@ -85,7 +84,6 @@ class SetListByExercise(ListView):
 
 
 class SetCreate(CreateView):
-    """Should all of this be in the session detail view?"""
     model = Set
     fields = ('exercise', 'amount', 'units')
 
