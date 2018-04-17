@@ -14,8 +14,13 @@ Resume/CV
 Blog
   - basic django list and detail views, only I will be able to post through the django admin
   - nice and simple static site
+  
+Users app
+  - CRUD for users
+  - they (probably just me) can use it to keep a personal workout journal
 
 Workout Journal
+  - link it to users app
   - should be linked to users so that CRUD operations can be displayed
   - regular django views - generic class based views
   - django rest framework api with react -- presumably the react can be served from an amazon S3 bucket
