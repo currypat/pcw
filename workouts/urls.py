@@ -21,8 +21,7 @@ urlpatterns = [
     re_path(r'^sessions/(?P<pk>[0-9]+)/delete/$', views.SessionDelete.as_view(), name='SessionDelete'),
 
     # sessions - sets
-    re_path(r'^sessions/(?P<pk>[0-9]+)/sets/$', views.SetList.as_view(), name='SetList'),
-
+    re_path(r'^sessions/(?P<pk>[0-9]+)/sets/$', views.SetListBySession.as_view(), name='SetListByExercise'),
 
     # exercises
     path('exercises/', views.ExerciseList.as_view(), name='ExerciseList'),
@@ -31,8 +30,8 @@ urlpatterns = [
     re_path(r'^exercises/(?P<slug>[-\w]*)/update/$', views.ExerciseUpdate.as_view(), name='ExerciseUpdate'),
     re_path(r'^exercises/(?P<slug>[-\w]*)/delete/$', views.ExerciseDelete.as_view(), name='ExerciseDelete'),
 
-
     # exercises - sets
+    re_path(r'^exercises/(?P<slug>[-\w]*)/sets/$', views.SetListByExercise.as_view(), name='SetListByExercise'),
 
     ############################
     # django rest framework urls

@@ -1,4 +1,5 @@
 # patcurryworks.com/workouts/views.py
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -69,5 +70,15 @@ class ExerciseDelete(DeleteView):
 
 
 # Set views
-class SetList(ListView):
-    model = Set
+class SetListBySession(ListView):
+
+    def get_queryset(self):
+        self.session = get_object_or_404(Session, pk=self.kwargs['pk'])
+        return Set.objects.filter(session=self.session)
+
+
+class SetListByExercise(ListView):
+
+    def get_queryset(self):
+        self.exercise = get_object_or_404(Exercise, exercise_slug=self.kwargs['slug'])
+        return Set.objects.filter(exercise=self.exercise)
