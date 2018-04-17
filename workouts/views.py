@@ -44,6 +44,18 @@ class ExerciseDetail(DetailView):
     model = Exercise
     slug_field = 'exercise_slug'
 
+
+class ExerciseCreate(CreateView):
+    model = Exercise
+    fields = ['title']
+    template_name = 'workouts/exercise_create.html'
+
+    def get_success_url(self):
+        return reverse('workouts:ExerciseDetail', kwargs={'pk': self.object.pk})
+
+
+
+
 # Set views
 
 
