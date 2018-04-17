@@ -69,3 +69,5 @@ class ExerciseDelete(DeleteView):
 
 
 # Set views
+class SetList(ListView):
+    model = Set
