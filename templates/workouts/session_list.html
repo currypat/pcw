@@ -1,15 +1,14 @@
 <!-- patcurryworks.com/templates/workouts/session_list.html -->
 {% extends "base.html" %}
-{% load static %}
 
 {% block content %}
 <div class="sessions">
   <h1>Session List</h1>
+  <a href="{% url 'workouts:SessionCreate' %}">Create New Session</a>
   <div class="session-list">
   {% if object_list %}
   {% for session in object_list %}
-  <p>{{ session.title }} - {{ session.pub_date|date:"Y-m-d" }}</p>
-  <p>{{ session.session_slug }}</p>
+  <p><a href="{% url 'workouts:SessionDetail' session.pk %}">{{ session.title }} - {{ session.pub_date|date:"Y-m-d" }}</a></p>
   {% endfor %}
   {% else %}
   <p>no sessions yet</p>

@@ -82,3 +82,27 @@ class SetListByExercise(ListView):
     def get_queryset(self):
         self.exercise = get_object_or_404(Exercise, exercise_slug=self.kwargs['slug'])
         return Set.objects.filter(exercise=self.exercise)
+
+
+class SetCreate(CreateView):
+    """Should all of this be in the session detail view?"""
+    model = Set
+    fields = ('exercise', 'amount', 'units')
+
+    def dispatch(self, request, *args, **kwargs):
+        """
+        Overridden so we can make sure the `Session` instance exists
+        before going any further.
+        """
+        self.session = get_object_or_404(Session, pk=kwargs['pk'])
+        return super().dispatch(request, *args, **kwargs)
+    
+    def form_valid(self, form):
+        """
+        Overridden to add the Session relation to the `Set` instance.
+        """
+        form.instance.session = self.session
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('workouts:SessionDetail', kwargs={'pk': self.session.pk})
