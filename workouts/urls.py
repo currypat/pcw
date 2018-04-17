@@ -24,6 +24,8 @@ urlpatterns = [
     path('exercises/', views.ExerciseList.as_view(), name='ExerciseList'),
     path('exercises/new/', views.ExerciseCreate.as_view(), name='ExerciseCreate'),
     re_path(r'^exercises/(?P<slug>[-\w]*)/$', views.ExerciseDetail.as_view(), name='ExerciseDetail'),
+    re_path(r'^exercises/(?P<slug>[-\w]*)/update/$', views.ExerciseUpdate.as_view(), name='ExerciseUpdate'),
+    re_path(r'^exercises/(?P<slug>[-\w]*)/delete/$', views.ExerciseDelete.as_view(), name='ExerciseDelete'),
 
     # sessions - sets
 

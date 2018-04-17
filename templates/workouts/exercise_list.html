@@ -7,8 +7,7 @@
   <div class="exercise-list">
   {% if object_list %}
   {% for exercise in object_list %}
-  <p>{{ exercise.title }}</p>
-  <p>{{ exercise.exercise_slug }}</p>
+  <h4>{{ exercise.title }}</h4>
   {% endfor %}
   {% else %}
   <p>no exercises yet</p>

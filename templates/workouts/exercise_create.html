@@ -4,7 +4,8 @@
 
 {% block content %}
 <div class="exercises">
-  <h1>Session Create</h1>
+  <h1>Exercise Create</h1>
   {% include "workouts/exercise_form.html" %}
+  <a href="{% url 'workouts:ExerciseList' %}">Back to Exercise List</a>
 </div>
 {% endblock content %}

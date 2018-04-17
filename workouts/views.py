@@ -51,41 +51,21 @@ class ExerciseCreate(CreateView):
     template_name = 'workouts/exercise_create.html'
 
     def get_success_url(self):
-        return reverse('workouts:ExerciseDetail', kwargs={'pk': self.object.pk})
+        return reverse('workouts:ExerciseDetail', kwargs={'slug': self.object.exercise_slug})
 
+
+class ExerciseUpdate(UpdateView):
+    model = Exercise
+    fields = ['title']
+    slug_field = 'exercise_slug'
+    success_url = reverse_lazy('workouts:ExerciseList')
+
+    
+class ExerciseDelete(DeleteView):
+    model = Exercise
+    slug_field = 'exercise_slug'
+    success_url = reverse_lazy('workouts:ExerciseList')
 
 
 
 # Set views
-
-
-
-#class ExerciseList(generics.ListCreateAPIView):
-#    queryset = Exercise.objects.all()
-#    serializer_class = ExerciseSerializer
-#
-#
-#class ExerciseDetail(generics.RetrieveUpdateDestroyAPIView):
-#    queryset = Exercise.objects.all()
-#    serializer_class = ExerciseSerializer
-#
-#
-#class SetList(generics.ListCreateAPIView):
-#    queryset = Set.objects.all()
-#    serializer_class = SetSerializer
-#
-#
-#class SetDetail(generics.RetrieveUpdateDestroyAPIView):
-#    queryset = Set.objects.all()
-#    serializer_class = SetSerializer
-#   
-#
-#class SessionList(generics.ListCreateAPIView):
-#    queryset = Session.objects.all()
-#    serializer_class = SessionSerializer
-#
-#
-#class SessionDetail(generics.RetrieveUpdateDestroyAPIView):
-#    queryset = Session.objects.all()
-#    serializer_class = SessionSerializer
-   

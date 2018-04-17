@@ -22,8 +22,8 @@ UNIT_CHOICES = (
 
 class Exercise(models.Model):
     """This is the smallest individual unit. Each exercise should be unique"""
-    title = models.CharField(max_length=50, blank=True, null=True)
-    exercise_slug = models.SlugField(max_length=50, blank=True, null=True)
+    title = models.CharField(max_length=50, unique=True)
+    exercise_slug = models.SlugField(max_length=50, unique=True)
 
     def __str__(self):
         return self.title
