@@ -2,16 +2,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-Session Detail
-<h2>{{ object.title }}</h2>
+<h2>{{ object.title }} - {{ object.pub_date }}</h2>
 
 <h3>Sets</h3>
 
-<p>Here I will create the sets</p>
+<!-- this should have a different link class -->
+<p><a class="link workouts" href="{% url 'workouts:SessionList' %}">Back to Session List</a></p>
+<p><a class="link workouts" href="{% url 'workouts:SetCreate' object.pk %}">Add New Set</a></p>
+<p>How do I get a set count? </p>
+<hr />
 
-{% for set in object.set_set.all %}
-  <h4>Exercise: {{ set.exercise.title }}</h4>
-  <p>How do I get a set count? </p>
-  <p>Amount: {{ set.amount }} {{ set.units }}</p>
-{% endfor %}
+{% if object.set_set.all %}
+  Total sets: {{ object.set_set.all|length }}
+  <hr />
+  <h3>Sets</h3>
+  {% for set in object.set_set.all %}
+    <p>{{ set.exercise.title }} - {{ set.amount }} {{ set.units }}</p>
+  {% endfor %}
+{% else %}
+    <p> No sets yet</p>
+{% endif %}
+
 {% endblock content %}

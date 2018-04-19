@@ -86,6 +86,7 @@ class SetListByExercise(ListView):
 class SetCreate(CreateView):
     model = Set
     fields = ('exercise', 'amount', 'units')
+    template_name = 'workouts/set_create.html'
 
     def dispatch(self, request, *args, **kwargs):
         """
