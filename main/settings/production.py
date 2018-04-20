@@ -28,3 +28,5 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+STATIC_URL = "https://s3.eu-central-1.amazonaws.com/patcurryworks-static/"
