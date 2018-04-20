@@ -22,12 +22,12 @@ class PostListViewTests(TestCase):
 
     def test_post_list_view_has_Blog_in_it(self):
         response = self.client.get(self.blog_url)
-        self.assertIn('Blog', response.content.decode('utf-8'))
+        self.assertIn(b'Blog', response.content)
 
     def test_post_list_view_returns_list_of_blog_posts(self):
         response = self.client.get(self.blog_url)
-        self.assertIn('post one', response.content.decode('utf-8'))
-        self.assertIn('post two', response.content.decode('utf-8'))
+        self.assertIn(b'post one', response.content)
+        self.assertIn(b'post two', response.content)
 
 
 class PostDetailViewTests(TestCase):
@@ -46,8 +46,8 @@ class PostDetailViewTests(TestCase):
 
     def test_post_detail_has_post_title_in_content(self):
         response = self.client.get(self.blog_url + 'post-one/')
-        self.assertIn('post one', response.content.decode('utf-8'))
+        self.assertIn(b'post one', response.content)
 
     def test_post_detail_has_post_text_in_content(self):
         response = self.client.get(self.blog_url + 'post-one/')
-        self.assertIn('first post', response.content.decode('utf-8'))
+        self.assertIn(b'first post', response.content)

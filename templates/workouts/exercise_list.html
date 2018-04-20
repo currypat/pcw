@@ -1,0 +1,17 @@
+<!-- patcurryworks.com/templates/workouts/exercise_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="exercises">
+  <h1>Exercise List</h1>
+  <div class="exercise-list">
+  {% if object_list %}
+  {% for exercise in object_list %}
+  <h4>{{ exercise.title }}</h4>
+  {% endfor %}
+  {% else %}
+  <p>no exercises yet</p>
+  {% endif %}
+  </div>
+</div>
+{% endblock content %}

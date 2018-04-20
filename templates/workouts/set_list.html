@@ -1,0 +1,20 @@
+<!-- patcurryworks.com/templates/workouts/set_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="set">
+  <h1>Set List</h1>
+  <div class="set-list">
+  {% if object_list %}
+  {% for set in object_list %}
+  <h4>{{ set.session }}</h4>
+  <h4>{{ set.exercise }}</h4>
+  <h4>{{ set.amount }}</h4>
+  <h4>{{ set.units }}</h4>
+  {% endfor %}
+  {% else %}
+  <p>no sets yet</p>
+  {% endif %}
+  </div>
+</div>
+{% endblock content %}

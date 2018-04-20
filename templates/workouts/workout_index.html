@@ -1,0 +1,15 @@
+<!-- patcurryworks.com/templates/workouts/workout_index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="workout-index">
+  <h1>Workout!</h1>
+  <hr />
+  <h4><a href="{% url 'workouts:SessionList' %}">Sessions</a></h4>
+  <p><a href="{% url 'workouts:SessionCreate' %}">New Session</a></p>
+  <hr />
+  <h4><a href="{% url 'workouts:ExerciseList' %}">Exercises</a></h4>
+  <p><a href="{% url 'workouts:ExerciseCreate' %}">New Exercise</a></p>
+</div>
+{% endblock content %}
+
