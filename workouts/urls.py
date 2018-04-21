@@ -14,7 +14,9 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='workouts/workout_index.html'), name='WorkoutIndex'),
 
     # workouts react view
-    path('react', TemplateView.as_view(template_name='workouts/react.html'), name='react'),
+    # the second part matches anything so that django doesn't have conflict with react router works
+    path('react/', TemplateView.as_view(template_name='workouts/react.html'), name='react'),
+    re_path(r'^react/(?:.*)/?$', TemplateView.as_view(template_name='workouts/react.html'), name='react'),
 
     # sessions
     path('sessions/', views.SessionList.as_view(), name='SessionList'),
