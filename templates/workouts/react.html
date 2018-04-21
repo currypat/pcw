@@ -1,0 +1,11 @@
+<!-- patcurryworks.com/templates/workouts/react.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home-style.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div id="react-root"></div>
+<script src="{% static 'js/workouts-react.js' %}"></script>
+{% endblock content %}

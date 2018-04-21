@@ -13,6 +13,9 @@ urlpatterns = [
     # workouts index view
     path('', TemplateView.as_view(template_name='workouts/workout_index.html'), name='WorkoutIndex'),
 
+    # workouts react view
+    path('react', TemplateView.as_view(template_name='workouts/react.html'), name='react'),
+
     # sessions
     path('sessions/', views.SessionList.as_view(), name='SessionList'),
     path('sessions/new/', views.SessionCreate.as_view(), name='SessionCreate'),
